@@ -17,15 +17,6 @@ import androidx.compose.ui.window.application
 @Composable
 fun App() {
     MaterialTheme {
-//        place to type in shipment id
-//        track button next to id input
-//        each added shipment has its own div with
-//          shipment #
-//          x button
-//          status
-//          location
-//          expected delivery
-//          status updates
 
         var textFieldInput by remember { mutableStateOf("") }
 
