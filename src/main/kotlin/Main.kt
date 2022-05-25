@@ -12,6 +12,11 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import java.lang.reflect.Modifier
 
+//stuff to ask
+    //composable from another file?
+    //stuff in folders?
+    //example of one of the strategies
+
 @Composable
 fun App() {
     MaterialTheme {
@@ -35,9 +40,6 @@ fun App() {
         }
         Row {
             LazyColumn {
-    //                items(messages){ message ->
-    //                    Message(message)
-    //                }
                 items(messages) {
                     Message(it)
                 }

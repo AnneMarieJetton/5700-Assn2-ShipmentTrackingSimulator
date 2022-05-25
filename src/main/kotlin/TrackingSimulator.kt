@@ -18,5 +18,6 @@ class TrackingSimulator (_shipments: MutableList<Shipment>){
 
     }
 
+    //make an instance of each strategy and keep it in a dictionary
 
 }

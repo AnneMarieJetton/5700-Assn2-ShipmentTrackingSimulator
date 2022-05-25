@@ -5,22 +5,22 @@ import androidx.compose.runtime.setValue
 
 class TrackerViewHelper (){
 
-//    var shipmentId by remember { mutableStateOf("") }
-//    var shipmentTotes by remember { mutableStateOf(mutableListOf<String>()) }
-//    var shipmentUpdateHistory by remember { mutableStateOf(mutableListOf<String>()) }
-//    var expectedShipmentDeliveryDate by remember { mutableStateOf(mutableListOf<String>()) }
-//    var shipmentStatus by remember { mutableStateOf("") }
-//
-//    init {
-//
-//    }
-//
-//    fun trackShipment(id: String){
-//
-//    }
-//
-//    fun stopTracking(){
-//
-//    }
+    var shipmentId by mutableStateOf("")
+    var shipmentNotes by mutableStateOf(mutableListOf<String>())
+    var shipmentUpdateHistory by mutableStateOf(mutableListOf<String>())
+    var expectedShipmentDeliveryDate by mutableStateOf(mutableListOf<String>())
+    var shipmentStatus by mutableStateOf("")
+
+    init {
+
+    }
+
+    fun trackShipment(id: String){
+
+    }
+
+    fun stopTracking(){
+
+    }
 
 }

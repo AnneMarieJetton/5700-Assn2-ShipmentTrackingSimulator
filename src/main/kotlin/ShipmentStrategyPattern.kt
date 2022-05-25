@@ -1,0 +1,6 @@
+interface ShipmentStrategyPattern {
+
+    fun updateStatus(){
+
+    }
+}
