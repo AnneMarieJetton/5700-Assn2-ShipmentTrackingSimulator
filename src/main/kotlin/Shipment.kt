@@ -1,13 +1,13 @@
-class Shipment(_status: String, _id: String, _notes: MutableList<String>, _updateHistory: MutableList<ShippingUpdate>, _expectedDeliveryDateTimestamp: Long, _currentLocation: String) {
+class Shipment(shipmentInfo: List<String>) {
 
-    var status: String = _status
-    var id: String = _id
-    var notes: MutableList<String> = _notes
+    var status: String = shipmentInfo[0]
+    var id: String = shipmentInfo[1]
+    var notes: MutableList<String> = mutableListOf()
         private set
-    var updateHistory: MutableList<ShippingUpdate> = _updateHistory
+    var updateHistory: MutableList<ShippingUpdate> = mutableListOf()
         private set
-    var expectedDeliveryDateTimestamp: Long = _expectedDeliveryDateTimestamp
-    var currentLocation: String = _currentLocation
+    var expectedDeliveryDateTimestamp: Long = shipmentInfo[2].toLong()
+    var currentLocation: String = shipmentInfo[0]
 
     init {
 
