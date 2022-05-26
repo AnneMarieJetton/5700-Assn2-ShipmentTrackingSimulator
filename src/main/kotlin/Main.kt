@@ -13,7 +13,7 @@ import androidx.compose.ui.window.application
 @Composable
 fun App() {
     MaterialTheme {
-//        TrackingSimulator.runSimulation()
+        TrackingSimulator.runSimulation()
 
         var textFieldInput by remember { mutableStateOf("") }
         var trackedShipments = remember { mutableStateListOf<TrackerViewHelper>() }

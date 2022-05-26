@@ -33,7 +33,7 @@ class TrackingSimulator private constructor(){
             val shipped = Shipped()
             val dictionary = mapOf<String, ShipmentStrategyPattern>("canceled" to canceled, "created" to created, "delayed" to delayed, "delivered" to delivered, "location" to location, "lost" to lost, "noteadded" to noteAdded, "shipped" to shipped)
 
-            var file = File("text.txt")
+            var file = File("test.txt")
             file.forEachLine{
                 var splitLine = it.split(",")
 //                var shippingUpdate = ShippingUpdate(splitLine)
