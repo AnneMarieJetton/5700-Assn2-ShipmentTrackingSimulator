@@ -1,6 +1,6 @@
 interface ShipmentStrategyPattern {
 
-    fun updateStatus(){
+    fun updateStatus(updateInfo: List<String>){
 
     }
 

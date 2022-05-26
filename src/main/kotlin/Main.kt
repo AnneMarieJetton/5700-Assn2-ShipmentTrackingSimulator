@@ -1,5 +1,4 @@
 // Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
-import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -10,22 +9,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import java.lang.reflect.Modifier
-
-//stuff to ask
-    //composable from another file?
-    //stuff in folders?
-    //example of one of the strategies
 
 @Composable
 fun App() {
     MaterialTheme {
-
-
+//        TrackingSimulator.runSimulation()
 
         var textFieldInput by remember { mutableStateOf("") }
-//        var trackedShipments by remember { mutableStateOf(mutableListOf<Shipment>()) }
-        var messages = remember { mutableStateListOf<String>() }
+        var trackedShipments = remember { mutableStateListOf<TrackerViewHelper>() }
 
     Column {
         Row {
@@ -35,14 +26,14 @@ fun App() {
                 }
             )
             Button(
-                onClick = {/*add TrackingSimulator.addShipment(id) here*/messages.add("tracking item") }) {
+                onClick = { trackedShipments.add(TrackerViewHelper(textFieldInput)) }) {
                 Text("Track")
 
             }
         }
         Row {
             LazyColumn {
-                items(messages) {
+                items(trackedShipments) {
                     Message(it)
                 }
             }
@@ -53,17 +44,16 @@ fun App() {
 }
 
 @Composable
-fun Message(message: String){
+fun Message(shipment: TrackerViewHelper){
     Row (modifier = androidx.compose.ui.Modifier.padding(16.dp)) {
         Surface(elevation = 3.dp) {
             Column{
-                Text(message)
-                Text("Id:")
-                Text("Status:")
-                Text("Location: ")
-                Text("Expected Delivery: ")
-                Text("Status Updates:")
-                Text("Notes")
+                Text("Id: " + shipment.shipmentId)
+                Text("Status: " + shipment.shipmentStatus)
+                Text("Location: " + shipment.currentLocation)
+                Text("Expected Delivery: " + shipment.expectedShipmentDeliveryDate)
+                Text("Status Updates: put updates array here ")
+                Text("Notes: put Notes here")
             }
         }
     }
