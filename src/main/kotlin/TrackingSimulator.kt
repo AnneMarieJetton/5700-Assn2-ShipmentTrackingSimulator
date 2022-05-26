@@ -1,10 +1,10 @@
 import Strategies.*
 import java.io.File
+import kotlinx.coroutines.*
 
 class TrackingSimulator private constructor(){
 
     companion object {
-//        var shipments = MutableList<Shipment>()
         var shipments = mutableListOf<Shipment>()
             private set
 
@@ -22,7 +22,8 @@ class TrackingSimulator private constructor(){
             shipments.add(shipment)
         }
 
-        fun runSimulation() {
+        suspend fun runSimulation(){
+
             val canceled = Canceled()
             val created = Created()
             val delayed = Delayed()
@@ -31,16 +32,25 @@ class TrackingSimulator private constructor(){
             val lost = Lost()
             val noteAdded = NoteAdded()
             val shipped = Shipped()
-            val dictionary = mapOf<String, ShipmentStrategyPattern>("canceled" to canceled, "created" to created, "delayed" to delayed, "delivered" to delivered, "location" to location, "lost" to lost, "noteadded" to noteAdded, "shipped" to shipped)
+            val dictionary = mapOf<String, ShipmentStrategyPattern>(
+                "canceled" to canceled,
+                "created" to created,
+                "delayed" to delayed,
+                "delivered" to delivered,
+                "location" to location,
+                "lost" to lost,
+                "noteadded" to noteAdded,
+                "shipped" to shipped
+            )
 
             var file = File("test.txt")
-            file.forEachLine{
+
+            file.forEachLine {
+//                delay(5000L)
                 var splitLine = it.split(",")
-//                var shippingUpdate = ShippingUpdate(splitLine)
-                //no imputs on creation, just input to function
 
                 if (splitLine[0] == "Created") {
-                    var shipment =  Shipment(splitLine)
+                    var shipment = Shipment(splitLine)
                     if (findShipment(shipment.id) == null) {
                         addShipment(shipment)
                     }
@@ -49,9 +59,8 @@ class TrackingSimulator private constructor(){
                 dictionary[splitLine[0]]?.updateStatus(splitLine)
 
             }
-        }
 
-        //make an instance of each strategy and keep it in a dictionary
+        }
     }
 
 }

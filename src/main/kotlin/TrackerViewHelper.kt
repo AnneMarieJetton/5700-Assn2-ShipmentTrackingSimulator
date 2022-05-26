@@ -28,7 +28,6 @@ class TrackerViewHelper (_id: String): Observer{
     }
 
     fun stopTracking(){
-        //removes from list of observers
         var shipment = trackShipment(shipmentId)
         if (shipment != null) {
             shipment.removeObserver(this)

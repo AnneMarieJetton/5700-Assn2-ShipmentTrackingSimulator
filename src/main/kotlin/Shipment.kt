@@ -25,7 +25,6 @@ class Shipment(shipmentInfo: List<String>): Observable {
             notifyObservers()
         }
 
-    //holds list of observers that are observing it.
     var observers: MutableList<TrackerViewHelper> = mutableListOf()
 
     fun addNote(note: String){
@@ -39,17 +38,14 @@ class Shipment(shipmentInfo: List<String>): Observable {
     }
 
     override fun addObserver(observer: TrackerViewHelper) {
-//        super.addObserver(observer)
         observers.add(observer)
     }
 
     override fun removeObserver(observer: TrackerViewHelper) {
-//        super.removeObserver(observer)
         observers.remove(observer)
     }
 
     override fun notifyObservers() {
-//        super.notifyObservers()
         observers.forEach {
             it.update(status, id, notes, updateHistory, expectedDeliveryDateTimestamp, currentLocation)
         }

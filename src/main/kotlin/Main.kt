@@ -9,11 +9,15 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 @Composable
 fun App() {
     MaterialTheme {
-        TrackingSimulator.runSimulation()
+        GlobalScope.launch {
+            TrackingSimulator.runSimulation()
+        }
 
         var textFieldInput by remember { mutableStateOf("") }
         var trackedShipments = remember { mutableStateListOf<TrackerViewHelper>() }

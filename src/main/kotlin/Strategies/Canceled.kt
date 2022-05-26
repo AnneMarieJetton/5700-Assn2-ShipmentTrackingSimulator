@@ -7,11 +7,6 @@ import TrackingSimulator
 class Canceled(): ShipmentStrategyPattern{
 
     override fun updateStatus(updateInfo: List<String>) {
-        //give this the whole string
-        //find shipment with id
-        //update shipment
-        //creates shipment update instance
-        //give to shipment with add update
 
         var shipment = TrackingSimulator.findShipment(updateInfo[1])
 

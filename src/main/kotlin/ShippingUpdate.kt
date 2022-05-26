@@ -4,8 +4,4 @@ class ShippingUpdate(_previousStatus: String, _newStatus: String, _timeStamp: Lo
     var newStatus: String = _newStatus
     var timestamp: Long = _timeStamp
 
-    init {
-
-    }
-
 }
